@@ -4,11 +4,9 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-
 import shutil
 import io
 from googleapiclient.http import MediaIoBaseDownload
-
 
 
 class DriveAPI:
@@ -51,7 +49,6 @@ class DriveAPI:
             print("Here's a list of files: \n")
             for item in items:
                 print(u'{0} ({1})'.format(item['name'],item['id']))
-            #print(*items, sep="\n", end="\n\n")
 
     def FileDownload(self, file_id, file_name):
         request = self.service.files().get_media(fileId=file_id)
